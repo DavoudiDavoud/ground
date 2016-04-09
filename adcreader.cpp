@@ -1,17 +1,27 @@
-#include "adcreader.h"
-#include <QDebug>
+#ifndef ADCREADER
+#define ADCREADER
 
-void ADCreader::run()
+#include <QThread>
+ 
+class ADCreader : public QThread
 {
-	running = true;
-	while (running) {
-		qDebug() << "Tick";
-		sleep(1);
-	}
-}
+public:
+	ADCreader();
+	void quit();
+	void run();
+	int get_samples();
+	bool read_enable();
+	
+	int ret;
+	int fd;
+	int sysfs_fd;
+	bool running; 
+	int no_tty;
+	int inp;
+	int outp;
+	int buff[100];
 
-void ADCreader::quit()
-{
-	running = false;
-	exit(0);
-}
+
+};
+
+#endif
