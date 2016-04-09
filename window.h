@@ -42,7 +42,7 @@ private:
 	double yData[plotDataSize];
 
 
-//	ADCreader *adcreader;
+	ADCreader *adcreader;
 };
 
 #endif // WINDOW_H
