@@ -1,7 +1,6 @@
 #include "window.h"
 #include "adcreader.h"
 
-#include <cmath>  // for sine stuff
 
 
 Window::Window()
@@ -13,7 +12,7 @@ Window::Window()
 	for( int index=0; index<plotDataSize; ++index )
 	{
 		xData[index] = index;
-		yData[index] = sin( M_PI * index/50 );
+		yData[index] = 0;
 	}
 
 	curve = new QwtPlotCurve;
@@ -50,10 +49,10 @@ Window::~Window() {
 
 void Window::timerEvent( QTimerEvent * )
 {
-	double inVal =sin( M_PI * 1/50.0 );
+	double dval = 0;
 	// add the new input to the plot
 	memmove( yData, yData+1, (plotDataSize-1) * sizeof(double) );
-	yData[plotDataSize-1] = inVal;
+	yData[plotDataSize-1] = dval;
 	curve->setSamples(xData, yData, plotDataSize);
 	plot->replot();
 
