@@ -9,7 +9,6 @@ Window::Window()
 	
 
 
-
 	// set up the initial plot data
 	for( int index=0; index<plotDataSize; ++index )
 	{
@@ -51,9 +50,7 @@ Window::~Window() {
 
 void Window::timerEvent( QTimerEvent * )
 {
-	double inVal =sin( M_PI * count/50.0 );
-	++count;
-
+	double inVal =sin( M_PI * 1/50.0 );
 	// add the new input to the plot
 	memmove( yData, yData+1, (plotDataSize-1) * sizeof(double) );
 	yData[plotDataSize-1] = inVal;
