@@ -13,7 +13,7 @@ Window::Window()
 	for( int index=0; index<plotDataSize; ++index )
 	{
 		xData[index] = index;
-		yData[index] = gain * sin( M_PI * index/50 );
+		yData[index] = sin( M_PI * index/50 );
 	}
 
 	curve = new QwtPlotCurve;
