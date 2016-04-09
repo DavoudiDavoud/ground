@@ -23,8 +23,6 @@ public:
 
 	void timerEvent( QTimerEvent * );
 
-public slots:
-	void setGain(double gain);
 
 // internal variables for the window class
 private:
